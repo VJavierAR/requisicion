@@ -17,10 +17,13 @@ class requisicion(models.Model):
     fecha_prevista=fields.Datetime()
     justificacion=fields.Char()
     product_rel=fields.One2many('product.rel.requisicion','req_rel')
-    state = fields.Selection([('draft','New'),('open','Started'), ('done','Closed')],'State')
+    state = fields.Selection([('draft','Nuevo'),('open','Preparado'), ('done','Hecho')],'State')
 
     
     @api.one
     def update_estado(self):
+        self.write({'state':'open'})
+    @api.one
+    def update_estado1(self):
         self.write({'state':'done'})
     
