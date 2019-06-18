@@ -26,4 +26,8 @@ class requisicion(models.Model):
     @api.one
     def update_estado1(self):
         self.write({'state':'done'})
-    
+    @api.model
+    def create(self, vals):
+        vals['name'] = self.env['ir.sequence'].next_by_code('requisicion')
+        result = super(requisicion, self).create(vals)
+        return result
