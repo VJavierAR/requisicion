@@ -12,6 +12,7 @@ class product_requisicion(models.Model):
 class requisicion(models.Model):
     _name = 'requisicion.requisicion'
     _description='Requisicion'
+    _inherit = ['mail.thread', 'utm.mixin', 'rating.mixin', 'mail.activity.mixin']
     name = fields.Char()
     area = fields.Selection([('Ventas','Ventas'),('Almacen','Almacen'), ('Mesa de Ayuda','Mesa de Ayuda')])
     fecha_prevista=fields.Datetime()
