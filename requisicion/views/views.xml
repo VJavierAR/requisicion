@@ -86,5 +86,13 @@
 </record>
     
     
+    <record id="seq_requisicion" model="ir.sequence">
+            <field name="name">omega_sequencer</field>
+            <field name="code">requisicion</field>
+            <field name="prefix">REQield>
+            <field name="padding">3/field>
+        </record>
+    
+    
   </data>
 </odoo>
