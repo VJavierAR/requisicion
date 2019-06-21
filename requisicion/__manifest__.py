@@ -22,9 +22,7 @@
     # any module necessary for this one to work correctly
     'depends': [
         'base',
-        'mail',
-        'utm',
-        'rating',
+        'inventory',
     ],
 
     # always loaded
