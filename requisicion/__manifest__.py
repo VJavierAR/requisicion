@@ -24,6 +24,7 @@
         'base',
         'mail',
         'utm',
+        'rating',
     ],
 
     # always loaded
