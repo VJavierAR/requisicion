@@ -25,8 +25,11 @@ class requisicion(models.Model):
     def update_estado(self):
         self.write({'state':'open'})
     @api.one
-    def update_estado1(self):
+    def update_estado1(self,vals):
         self.write({'state':'done'})
+        id=self.env['purchase.order'].create({'partner_id':1})
+        for p in vals['product_rel']:
+            id=self.env['purchase.order.line'].create({'product_id':p.product.id,'qty':p.cantidad})
     @api.model
     def create(self, vals):
         vals['name'] = self.env['ir.sequence'].next_by_code('requisicion')
