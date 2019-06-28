@@ -62,20 +62,27 @@
     <field name="arch" type="xml">
 <form>
         <header>
-                      <button name="update_estado" type="object" string="Validación de Area"/>
-            <button name="update_estado1" type="object" string="Validación de Total"/>
-                    <field widget="statusbar" name="state" modifiers="{}"/>
+            <button name="update_estado" type="object" string="Validación de Area" attrs="{'invisible': ['|','|',('id', '=',False),('state','=','open'),('state','=','done')]}"/>
+            <button name="update_estado1" type="object" string="Validación de Total" attrs="{'invisible': ['|','|',('id', '=',False),('state','=','draft'),('state','=','done')]}"/>
+                    <field widget="statusbar" attrs="{'default_value':'draft'}" name="state" modifiers="{}"/>
         </header>
     <sheet string="Requisicion">
         <group col="4">
-            <field name="name" modifiers="{}"/>
-            <field name="area" modifiers="{}"/>
-            <field name="fecha_prevista" modifiers="{}"/>
+            <field name="name" attrs="{'readonly':1}" modifiers="{}"/>
             <newline/>
-            <field name="justificacion" colspan="4" modifiers="{}"/>
+            <field name="area" attrs="{'required':1}" modifiers="{}"/>
+            <field name="fecha_prevista" attrs="{'required':1}"  modifiers="{}"/>
+            <newline/>
+            <field name="justificacion" attrs="{'required':1}"  colspan="4" modifiers="{}"/>
             <newline/>
             <newline/>
-            <field name="product_rel" colspan="4" modifiers="{}"/>
+            <field name="product_rel" attrs="{'required':1}"  colspan="4" modifiers="{}">
+                <tree string="Rel requisiocion">
+                   <field name="id"/>
+                   <field string="Producto" name="product"/>
+                  <field name="cantidad"/>
+                </tree>    
+          </field>
             <newline/>
         </group>
     </sheet>
