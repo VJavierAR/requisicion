@@ -62,6 +62,8 @@
     <field name="arch" type="xml">
 <form>
         <header>
+                      <button name="update_estado" type="object" string="Validación de Area"/>
+            <button name="update_estado1" type="object" string="Validación de Total"/>
                     <field widget="statusbar" name="state" modifiers="{}"/>
         </header>
     <sheet string="Requisicion">
