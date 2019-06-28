@@ -30,7 +30,7 @@ class requisicion(models.Model):
         id=self.env['purchase.order'].create({'partner_id':1})
         for record in self:
             for p in record.product_rel:
-                id2=self.env['purchase.order.line'].create({'order_id':id'product_id':p.product.id,'product_qty':p.cantidad})
+                id2=self.env['purchase.order.line'].create({'order_id':id.id,'product_id':p.product.id,'product_qty':p.cantidad})
     @api.model
     def create(self, vals):
         vals['name'] = self.env['ir.sequence'].next_by_code('requisicion')
