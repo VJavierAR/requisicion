@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-
+import pytesseract
 class product_requisicion(models.Model):
     _name = 'product.rel.requisicion'
     _description='Rel requisiocion'
